@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Add Biodata</title>
+</head>
+<body>
+    <div class="container">
+        <div style="flex-direction: column;align-items: center;margin-top: 5vh;">
+            <div class="row">
+				<div>
+					<h1>Add Biodata</h1>
+				</div>
+                <form class="col s12" action="/create-biodata" method="POST">
+					<input name="user_id" type="hidden" value="<%= queryid %>">
+                    <div class="row">
+						<div class="input-field col s12">
+							<input name="name" type="text" placeholder="Nama Testing" class="validate">
+							<label for="name">Name</label>
+						</div>
+                    </div>
+                    <div class="row">
+						<div class="input-field col s12">
+							<input name="age" type="number" placeholder="20" class="validate" min="1" max="99">
+							<label for="age">Age</label>
+						</div>
+                    </div>
+                    <div class="row">
+						<div class="input-field col s12">
+							<input name="email" type="email" placeholder="abc@gmail.com" class="validate">
+							<label for="email">Email</label>
+						</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

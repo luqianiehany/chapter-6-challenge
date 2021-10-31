@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Edit User</title>
+</head>
+<body>
+    <div class="container">
+        <div style="flex-direction: column;align-items: center;margin-top: 5vh;">
+			<% editusers.forEach((edituser) => { %>
+            <div class="row">
+				<div>
+					<h1>Edit User ID <%= edituser.id %></h1>
+				</div>
+                <form class="col s12" action="/admin-update-user" method="POST">
+					<input name="edituserid" type="hidden" value="<%= edituser.id %>">
+                    <div class="row">
+                    <div class="input-field col s12">
+                        <input name="username" type="text" placeholder="user123" class="validate" value="<%= edituser.username %>">
+                        <label for="username">Username</label>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="input-field col s12">
+                        <input name="password" type="password" placeholder="pass1234" class="validate">
+                        <label for="password">Password</label>
+                    </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+			<% })%>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <title>Edit Biodata</title>
+</head>
+<body>
+    <div class="container">
+        <div style="flex-direction: column;align-items: center;margin-top: 5vh;">
+            <% editbiodatas.forEach((editbiodata) => { %>
+			<div class="row">
+				<div>
+					<h1>Edit Biodata of User ID <%= editbiodata.user_id %></h1>
+				</div>
+                <form class="col s12" action="/user-update-biodata" method="POST">
+					<input name="edituserid" type="hidden" value="<%= editbiodata.user_id %>">
+                    <div class="row">
+						<div class="input-field col s12">
+							<input name="name" type="text" placeholder="Nama Testing" class="validate" value="<%= editbiodata.name %>">
+							<label for="name">Name</label>
+						</div>
+                    </div>
+                    <div class="row">
+						<div class="input-field col s12">
+							<input name="age" type="number" placeholder="20" class="validate" min="1" max="99" value="<%= editbiodata.age %>">
+							<label for="age">Age</label>
+						</div>
+                    </div>
+                    <div class="row">
+						<div class="input-field col s12">
+							<input name="email" type="email" placeholder="abc@gmail.com" class="validate" value="<%= editbiodata.email %>">
+							<label for="email">Email</label>
+						</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+			<% })%>
+        </div>
+    </div>
+</body>
+</html>
