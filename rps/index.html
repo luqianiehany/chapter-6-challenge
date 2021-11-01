@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binar Challenge FW C4</title>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=swap" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+	<h1><span class="leftarrow"><</span> <img src="images/logo.png"> Rock Paper Scissors</h1>
+
+    <div class="container">
+        <div class="section">
+            <div class="info">
+                <p class="headertitle">PLAYER 1 (<span id="playerScore">0</span>)</p>
+            </div>
+			<br>
+            <div class="selection">
+				<img class="fas fa-hand-rock" id="rock" src="images/batu.png">
+				<br><br>
+				<img class="fas fa-hand-paper" id="paper" src="images/kertas.png">
+				<br><br>
+				<img class="fas fa-hand-scissors" id="scissors" src="images/gunting.png">
+			</div>
+        </div>
+		<div class="resultsection">
+			<p id="vs">VS</p>
+			<p class="result" id="result"></p>
+        </div>
+        <div class="section">
+            <div class="info">
+				<p class="headertitle">COM (<span id="computerScore">0</span>)</p>
+            </div>
+			<br>
+            <div class="show computer">
+				<img class="fas fa-hand-rock" id="comrock" src="images/batu.png">
+				<br><br>
+				<img class="fas fa-hand-paper" id="compaper" src="images/kertas.png">
+				<br><br>
+				<img class="fas fa-hand-scissors" id="comscissors" src="images/gunting.png">
+            </div>
+        </div>
+    </div>
+	<div class="divrefresh">
+		<img src="images/refresh.png" onclick="refresh()">
+	</div>
+</body>
+</html>

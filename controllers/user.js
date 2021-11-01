@@ -444,6 +444,10 @@ const adminDeleteUser = async (req, res, next) => {
     const { deleteuserid } = req.body;
     console.log(req.body);
 
+	const usergamehistory = await UserGameHistories.destroy({
+		where: { user_id: deleteuserid }
+	});
+	
 	const userbiodata = await UserGameBiodata.destroy({
 		where: { user_id: deleteuserid }
 	});
@@ -458,4 +462,36 @@ const adminDeleteUser = async (req, res, next) => {
   }
 };
 
-module.exports = { viewRegister, viewLogin, viewAdminLogin, viewUserDashboard, viewDashboard, addBiodata, editBiodata, deleteBiodata, createBiodata, userUpdateBiodata, userDeleteBiodata, addUser, editUser, deleteUser, createRegister, createLogin, createAdminLogin, adminCreateUser, adminUpdateUser, adminDeleteUser };
+const userUpdateGameHistory = async (req, res, next) => {
+  try {
+    const { user_id, result } = req.body;
+    console.log(req.body);
+    if (!user_id) {
+      throw {
+        message: `user_id must be valid`,
+        code: 400,
+        error: `bad request`,
+      };
+    }
+	
+	if (!result) {
+      throw {
+        message: `result must be valid`,
+        code: 400,
+        error: `bad request`,
+      };
+    }
+	
+	const user = await UserGameHistories.create({
+		time: Date.now(),
+		result: result,
+		user_id: user_id,
+    });
+	
+    return res.status(301).redirect('/rps?id='+user_id);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = { viewRegister, viewLogin, viewAdminLogin, viewUserDashboard, viewDashboard, addBiodata, editBiodata, deleteBiodata, createBiodata, userUpdateBiodata, userDeleteBiodata, addUser, editUser, deleteUser, createRegister, createLogin, createAdminLogin, adminCreateUser, adminUpdateUser, adminDeleteUser, userUpdateGameHistory };

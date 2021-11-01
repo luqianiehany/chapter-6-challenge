@@ -19,6 +19,8 @@ routers.post("/user-update-biodata", controller.userUpdateBiodata);
 routers.get("/user-dashboard/delete-biodata", controller.deleteBiodata);
 routers.post("/user-delete-biodata", controller.userDeleteBiodata);
 
+routers.post("/user-update-game-history", controller.userUpdateGameHistory);
+
 routers.get("/admin", controller.viewAdminLogin);
 routers.post("/create-admin-login", controller.createAdminLogin);
 routers.get("/dashboard", controller.viewDashboard);
